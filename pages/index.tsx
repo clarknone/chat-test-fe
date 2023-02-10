@@ -25,7 +25,7 @@ export default function Home() {
   }
 
   const snackbar: ISnackbarProps = {
-    success: success ? "Profile Updated" : "",
+    success: success ? "Topic Added" : "",
     error: error?.message,
   };
 

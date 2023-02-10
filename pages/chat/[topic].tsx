@@ -34,9 +34,9 @@ export default function ProfilePage() {
     newSocket.on("message", (data) => {
       setAllChat((val) => [...val, data]);
     });
-    return () => {
-      newSocket && newSocket.close();
-    };
+    // return () => {
+    //   newSocket && newSocket.close();
+    // };
   }, []);
 
   const topicFilter = topic ? (topic as string) : "";
@@ -98,10 +98,13 @@ export default function ProfilePage() {
             </Typography>
           </Stack>
 
-          <Button variant="contained" color="secondary" onClick={() => setIniviteModel(true)}>
-            {" "}
-            Invite{" "}
-          </Button>
+          {auth?.token ? (
+            <Button variant="contained" color="secondary" onClick={() => setIniviteModel(true)}>
+              Invite
+            </Button>
+          ) : (
+            <></>
+          )}
         </Stack>
       </AppBar>
       <Box height={"calc(100vh - 120px)"} p={"1em"} ref={chatBoxRef} width="100%" overflow="scroll">
