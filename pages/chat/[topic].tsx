@@ -98,10 +98,13 @@ export default function ProfilePage() {
             </Typography>
           </Stack>
 
-          <Button variant="contained" color="secondary" onClick={() => setIniviteModel(true)}>
-            {" "}
-            Invite{" "}
-          </Button>
+          {auth?.token ? (
+            <Button variant="contained" color="secondary" onClick={() => setIniviteModel(true)}>
+              Invite
+            </Button>
+          ) : (
+            <></>
+          )}
         </Stack>
       </AppBar>
       <Box height={"calc(100vh - 120px)"} p={"1em"} ref={chatBoxRef} width="100%" overflow="scroll">
