@@ -34,9 +34,9 @@ export default function ProfilePage() {
     newSocket.on("message", (data) => {
       setAllChat((val) => [...val, data]);
     });
-    return () => {
-      newSocket && newSocket.close();
-    };
+    // return () => {
+    //   newSocket && newSocket.close();
+    // };
   }, []);
 
   const topicFilter = topic ? (topic as string) : "";
